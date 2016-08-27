@@ -8,7 +8,6 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.Version;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,13 +15,15 @@ import java.nio.file.Paths;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
+ * 用于建文件索引
  * Created by pc on 2016/8/27.
  */
 public class IndexFileRunnable implements Runnable {
 
-    private ArrayBlockingQueue<File> queue ;
+    private ArrayBlockingQueue<File> queue;
     private boolean stop;
     private IndexWriter indexWriter;
+    // 停止信号
     public void setStop() {
         this.stop = true;
     }
@@ -39,6 +40,7 @@ public class IndexFileRunnable implements Runnable {
     public void run() {
         try {
             int count = 0;
+            // 如果程序没有停止信号 这一直运行
             while (!stop){
                 try {
                     File file = queue.poll();

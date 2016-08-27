@@ -71,9 +71,9 @@ public class SearchFileUtils {
 
         long l = System.currentTimeMillis();
         File basefile = new File("H:\\IT 猿");
-        SearchFileUtils searchFileUtils = new SearchFileUtils(new CJKAnalyzer(),"E:/index",basefile,"pdf");
+        SearchFileUtils searchFileUtils = new SearchFileUtils(new CJKAnalyzer(),"E:/index",basefile,"*");
 //        searchFileUtils.indexFile();
-        searchFileUtils.search("高清","pdf");
+        searchFileUtils.search("","txt");
         long l1 = System.currentTimeMillis();
         System.out.println(l1 - l);
 
