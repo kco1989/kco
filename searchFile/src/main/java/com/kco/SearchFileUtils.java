@@ -67,17 +67,4 @@ public class SearchFileUtils {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-
-        long l = System.currentTimeMillis();
-        File basefile = new File("H:\\IT 猿");
-        SearchFileUtils searchFileUtils = new SearchFileUtils(new CJKAnalyzer(),"E:/index",basefile,"*");
-//        searchFileUtils.indexFile();
-        searchFileUtils.search("","txt");
-        long l1 = System.currentTimeMillis();
-        System.out.println(l1 - l);
-
-//        SearchFileUtils searchFileUtils = new SearchFileUtils(new CJKAnalyzer(),"E:/index",basefile,"pdf");
-
-    }
 }
