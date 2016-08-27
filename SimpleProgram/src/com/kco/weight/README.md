@@ -35,7 +35,7 @@ int[] nums：表示n组砝码的最大数量，1<=xi<=10
 > com.kco.weight.WeigthDemo#arrrayInc 这个是递增+1的操作
 
 
-
+> [github地址](https://github.com/kco1989/kco/tree/master/SimpleProgram)
 
 
 [^footer1]: 参考一下[进制](http://baike.baidu.com/view/15954.htm)
