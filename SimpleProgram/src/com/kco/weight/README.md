@@ -4,8 +4,6 @@
 ##### github: https://github.com/kco1989/kco
 ---
 
-[TOC]
-
 # 概述
 这是一道华为内部OJ平台中的题,感觉挺有意思.
 
