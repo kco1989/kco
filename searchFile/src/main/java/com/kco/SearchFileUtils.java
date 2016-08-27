@@ -1,6 +1,7 @@
 package com.kco;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.net.SyslogAppender;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cjk.CJKAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -39,11 +40,14 @@ public class SearchFileUtils {
     }
 
     public void indexFile() throws Exception {
-        ForkJoinPool forkJoinPool = new ForkJoinPool();
-        forkJoinPool.invoke(new SearchFileAction(searchBaseFile, suffix, queue));
         IndexFileRunnable indexFileRunnable = new IndexFileRunnable(queue, indexPath, analyzer);
         new Thread(indexFileRunnable).start();
-        forkJoinPool.awaitTermination(2, TimeUnit.SECONDS);
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        forkJoinPool.invoke(new SearchFileAction(searchBaseFile, suffix, queue));
+        long time1 = System.currentTimeMillis();
+        forkJoinPool.awaitTermination(1, TimeUnit.MINUTES); //如果1分钟都没有扫描完,强制停止
+        long time2 = System.currentTimeMillis();
+        System.out.println(time2 - time1);
         forkJoinPool.shutdown();
         indexFileRunnable.setStop();
     }
@@ -60,6 +64,7 @@ public class SearchFileUtils {
             queryBuilder.add(new TermQuery(new Term(Constant.FIELD_SUFFIX,suffix)), BooleanClause.Occur.MUST);
         }
         TopDocs topDocs = indexSearcher.search(queryBuilder.build(), 10);
+        System.out.println("索引文件数量:" +indexSearcher.getIndexReader().maxDoc());
         System.out.println("搜索结果: " + topDocs.totalHits);
         for (ScoreDoc scoreDoc : topDocs.scoreDocs){
             Document doc = indexSearcher.doc(scoreDoc.doc);

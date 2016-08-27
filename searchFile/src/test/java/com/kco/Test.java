@@ -17,7 +17,7 @@ public class Test {
     public static void init(){
         try {
             File basefile = new File("H:\\IT 猿");
-            searchFileUtils = new SearchFileUtils(new CJKAnalyzer(),"E:/index",basefile,"*");
+            searchFileUtils = new SearchFileUtils(new CJKAnalyzer(),"E:\\index",basefile,"*");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class Test {
     @org.junit.Test
     public void testSearch(){
         try {
-            searchFileUtils.search("高清","pdf");
+            searchFileUtils.search("","class");
         } catch (IOException e) {
             e.printStackTrace();
         }

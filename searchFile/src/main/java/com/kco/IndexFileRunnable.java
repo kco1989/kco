@@ -8,6 +8,8 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.FSDirectory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +22,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class IndexFileRunnable implements Runnable {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(IndexFileRunnable.class);
     private ArrayBlockingQueue<File> queue;
     private boolean stop;
     private IndexWriter indexWriter;
@@ -39,9 +42,10 @@ public class IndexFileRunnable implements Runnable {
     @Override
     public void run() {
         try {
+            LOGGER.debug("执行建立索引线程");
             int count = 0;
             // 如果程序没有停止信号 这一直运行
-            while (!stop){
+            while (!stop || (stop && !queue.isEmpty())){
                 try {
                     File file = queue.poll();
                     if (file != null){
@@ -54,15 +58,18 @@ public class IndexFileRunnable implements Runnable {
                         document.add(new StringField(Constant.FIELD_SUFFIX, suffix, Field.Store.YES));
                         indexWriter.addDocument(document);
                         count ++;
-                        if (count >= 100){
+                        if (count % 100 == 0){
                             indexWriter.commit();
+                            LOGGER.debug("提交索引");
                         }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-        } finally { 
+            LOGGER.debug("索引个数:" + count);
+        } finally {
+            LOGGER.debug("关闭索引");
             colseIndexWrite();
         }
 
