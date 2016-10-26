@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kco.dao.SequenceNumberDao">
+
+    <resultMap id="sequenceNumberResultMap" type="com.kco.bean.SequenceNumberBean">
+        <id property="prefix" column="prefix"/>
+        <result property="name" column="name"/>
+        <result property="today" column="today"/>
+        <result property="minNum" column="minNum"/>
+        <result property="currentNum" column="currentNum"/>
+        <result property="numLength" column="numLength"/>
+    </resultMap>
+
+    <select id="newSequenceNumber" resultMap="sequenceNumberResultMap">
+        SELECT prefix,name,today,minNum,currentNum + 1 as currentNum,numLength
+        FROM PUB_SEQUENCE_NUMBER
+        WHERE prefix = #{prefix}
+        AND today = DATE_FORMAT(CURRENT_DATE(),'%Y%m%d') for UPDATE
+    </select>
+
+    <update id="updateSequenceNumber" parameterType="com.kco.bean.SequenceNumberBean">
+        REPLACE INTO PUB_SEQUENCE_NUMBER(prefix,name,today,minNum,currentNum,numLength)
+        VALUES(#{bean.prefix}, #{bean.name}, DATE_FORMAT(CURRENT_DATE(),'%Y%m%d'), #{bean.minNum}, #{bean.currentNum},#{bean.numLength})
+    </update>
+
+    <select id="getToday" resultType="string">
+        SELECT DATE_FORMAT(CURRENT_DATE(),'%Y%m%d')
+    </select>
+</mapper>
+        
+
