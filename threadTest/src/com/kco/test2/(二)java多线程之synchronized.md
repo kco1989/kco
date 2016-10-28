@@ -1,4 +1,4 @@
-(二)java多线程值之synchronized
+(二)java多线程之synchronized
 ========================
 ---
 本人邮箱: <kco1989@qq.com>
