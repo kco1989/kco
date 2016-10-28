@@ -11,7 +11,7 @@ github: <https://github.com/kco1989/kco>
 # [(二)java多线程之synchronized](./com/kco/test2/(二)java多线程之synchronized.md)
 # [(三)java多线程之wait notify notifyAll](./com/kco/test3/(三)java多线程之wait notify notifyAll.md)
 # [(四)java多线程之ThreadLocal](./com/kco/test4/(四)java多线程之ThreadLocal.md)
-# [(五)java多线程之Lock类](./com/kco/test/(五)java多线程之Lock类.md)
+# [(五)java多线程之Lock类](./com/kco/test5/(五)java多线程之Lock类.md)
 # 后续会继续更新
 
 ---
