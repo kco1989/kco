@@ -7,6 +7,8 @@ java多线程专题
 github: <https://github.com/kco1989/kco>
 ---
 
+代码已经全部托管[github](https://github.com/kco1989/kco/blob/master/threadTest)有需要的同学自行下载
+
 # [(一)java多线程之Thread](./com/kco/test1/(一)java多线程之Thread.md)
 # [(二)java多线程之synchronized](./com/kco/test2/(二)java多线程之synchronized.md)
 # [(三)java多线程之wait notify notifyAll](./com/kco/test3/(三)java多线程之wait notify notifyAll.md)
