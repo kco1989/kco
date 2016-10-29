@@ -9,7 +9,7 @@
 [TOC]
 
 #引言
-在写[(五)java多线程之Lock类](../test5/(五)java多线程之Lock类.md)时,我们暂时忽略掉`Lock`的一个方法,那就是`Lock.newCondition()`,这个方法返回一个`Condition`,现在我们这章就重点讲这个东东是什么,以及怎么使用.
+在写[(五)java多线程之Lock类](http://blog.csdn.net/tianshi_kco/article/details/52960709)时,我们暂时忽略掉`Lock`的一个方法,那就是`Lock.newCondition()`,这个方法返回一个`Condition`,现在我们这章就重点讲这个东东是什么,以及怎么使用.
 
 #理论
 `Condition`的中文翻译是`状态`.没错,这个就是让多线程在不同状态切换其他线程执行.跟`Object.wait`和`Object.notify`有点类似.
