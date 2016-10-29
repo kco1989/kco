@@ -11,14 +11,14 @@ public class ShowerRoom {
 
     public void bathe(String name){
         try {
-//            semaphore.acquire();
+            semaphore.acquire();
             System.out.println(Thread.currentThread().getName() + " 洗唰唰啊..洗唰唰... ");
             Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
             System.out.println(Thread.currentThread().getName() + " 终于洗完澡了...");
-//            semaphore.release();
+            semaphore.release();
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
