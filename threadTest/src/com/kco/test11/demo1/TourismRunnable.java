@@ -75,7 +75,7 @@ public class TourismRunnable implements Runnable{
     }
 
     private int getRandomTime(){
-        int time = this.random.nextInt(400) + 100;
+        int time = 100;
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
@@ -87,6 +87,7 @@ public class TourismRunnable implements Runnable{
     private void goToPoint(String point){
         try {
             String name = Thread.currentThread().getName();
+
             System.out.println(name + " 花了 " + getRandomTime() + " 时间才到了" + point);
             phaser.arriveAndAwaitAdvance();
         } catch (Exception e) {
