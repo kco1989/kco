@@ -15,6 +15,10 @@ java多线程专题
 # [(六)java多线程之ReadWriteLock](http://blog.csdn.net/tianshi_kco/article/details/52964939)
 # [(七)java多线程之Condition](http://blog.csdn.net/tianshi_kco/article/details/52964941)
 # [(八)java多线程之Semaphore](http://blog.csdn.net/tianshi_kco/article/details/52964947)
+# [(九)java多线程之CyclicBarrier](http://blog.csdn.net/tianshi_kco/article/details/52965561)
+# [(十)java多线程之CountDownLatch](http://blog.csdn.net/tianshi_kco/article/details/52972892)
+# [(十一)java多线程之Phaser]()
+# [(十二)java多线程之Exchanger]()
 # 后续会继续更新
 
 ---
