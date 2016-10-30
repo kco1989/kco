@@ -42,7 +42,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 准备返程
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToEndPoint() {
         return goToPoint("飞机场,准备登机回家");
@@ -50,7 +50,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 到达旅游点3
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToTourismPoint3() {
         return goToPoint("旅游点3");
@@ -58,7 +58,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 到达旅游点2
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToTourismPoint2() {
         return goToPoint("旅游点2");
@@ -66,7 +66,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 到达旅游点1
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToTourismPoint1() {
         return goToPoint("旅游点1");
@@ -74,7 +74,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 入住酒店
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToHotel() {
         return goToPoint("酒店");
@@ -82,7 +82,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 出发点集合
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToStartingPoint() {
         return goToPoint("出发点");
@@ -96,7 +96,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * @param point 集合点
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToPoint(String point){
         try {
@@ -116,7 +116,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 随机事件
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean randomEvent() {
         int r = random.nextInt(100);

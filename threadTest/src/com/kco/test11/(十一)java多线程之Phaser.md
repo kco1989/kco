@@ -274,8 +274,8 @@ public class TestMain {
 飞机的乘客都下机,小花空姐可以开始做 清理 工作
 飞机的乘客都下机,小惠空姐可以开始做 清理 工作
 ```
-
-#例子3 
+ 
+#例子3 高级用法
 前面两个例子都比较简单,现在我们还用`Phaser`一个比较高级一点用法.还是用旅游的例子
 假如有这么一个场景,在旅游过程中,有可能很凑巧遇到几个朋友,然后他们听说你们在旅游,所以想要加入一起继续接下来的旅游.也有可能,在旅游过程中,突然其中有某几个人临时有事,想退出这次旅游了.在自由行的旅游,这是很常见的一些事情.如果现在我们使用`CyclicBarrier`这个类来实现,我们发现是实现不了,这是用`Phaser`就可实现这个功能.
 
@@ -316,7 +316,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 准备返程
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToEndPoint() {
         return goToPoint("飞机场,准备登机回家");
@@ -324,7 +324,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 到达旅游点3
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToTourismPoint3() {
         return goToPoint("旅游点3");
@@ -332,7 +332,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 到达旅游点2
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToTourismPoint2() {
         return goToPoint("旅游点2");
@@ -340,7 +340,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 到达旅游点1
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToTourismPoint1() {
         return goToPoint("旅游点1");
@@ -348,7 +348,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 入住酒店
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToHotel() {
         return goToPoint("酒店");
@@ -356,7 +356,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 出发点集合
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToStartingPoint() {
         return goToPoint("出发点");
@@ -370,7 +370,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * @param point 集合点
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean goToPoint(String point){
         try {
@@ -390,7 +390,7 @@ public class TourismRunnable implements Runnable{
 
     /**
      * 随机事件
-     * @return 返回true,说明还要继续旅游,否则就不是临时退出了
+     * @return 返回true,说明还要继续旅游,否则就临时退出了
      */
     private boolean randomEvent() {
         int r = random.nextInt(100);
