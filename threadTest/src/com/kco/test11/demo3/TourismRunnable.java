@@ -89,7 +89,7 @@ public class TourismRunnable implements Runnable{
     }
 
     private int getRandomTime() throws InterruptedException {
-        int time = 100;
+        int time = random.nextInt(400) + 100;
         Thread.sleep(time);
         return time;
     }
