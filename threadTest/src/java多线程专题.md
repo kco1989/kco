@@ -18,7 +18,9 @@ java多线程专题
 # [(九)java多线程之CyclicBarrier](http://blog.csdn.net/tianshi_kco/article/details/52965561)
 # [(十)java多线程之CountDownLatch](http://blog.csdn.net/tianshi_kco/article/details/52972892)
 # [(十一)java多线程之Phaser](http://blog.csdn.net/tianshi_kco/article/details/52975468)
-# [(十二)java多线程之Exchanger]()
+# [(十二)java多线程之Exchanger](http://blog.csdn.net/tianshi_kco/article/details/52987571)
+# [(十三)java多线程之Timer](http://blog.csdn.net/tianshi_kco/article/details/52987579)
+# [(十四)java多线程之死锁以及解决方案](http://blog.csdn.net/tianshi_kco/article/details/52987584)
 # 后续会继续更新
 
 ---
