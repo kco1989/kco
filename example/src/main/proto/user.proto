@@ -1,0 +1,9 @@
+syntax = "proto3";
+option java_package = "proto";
+option java_outer_classname = "Reg";
+
+message User {
+     string ipaddr = 1;
+//    optional string cookie = 2;
+//    optional int64 token = 3;
+}
