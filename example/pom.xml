@@ -213,6 +213,21 @@
             <artifactId>protobuf-java</artifactId>
             <version>3.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-stub</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -248,36 +263,38 @@
                     <!--</execution>-->
                 <!--</executions>-->
             <!--</plugin>-->
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>compile-protoc</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <tasks>
-                                <mkdir dir="src/main/gen-java" />
-                                <path id="proto.path">
-                                    <fileset dir="src/main/proto">
-                                        <include name="**/*.proto" />
-                                    </fileset>
-                                </path>
-                                <pathconvert pathsep=" " property="proto.files"
-                                             refid="proto.path" />
-                                <exec executable="protoc3">
-                                    <arg value="--java_out=src/main/gen-java" />
-                                    <arg value="-I${project.basedir}/src/main/proto" />
-                                    <arg line="${proto.files}" />
-                                </exec>
-                            </tasks>
-                            <sourceRoot>src/main/gen-java</sourceRoot>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<artifactId>maven-antrun-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>compile-protoc</id>-->
+                        <!--<phase>generate-sources</phase>-->
+                        <!--&lt;!&ndash;<phase>compile</phase>&ndash;&gt;-->
+                        <!--<configuration>-->
+                            <!--<tasks>-->
+                                <!--<mkdir dir="src/main/gen-java" />-->
+                                <!--<path id="proto.path">-->
+                                    <!--<fileset dir="src/main/proto">-->
+                                        <!--<include name="**/*.proto" />-->
+                                    <!--</fileset>-->
+                                <!--</path>-->
+                                <!--<pathconvert pathsep=" " property="proto.files"-->
+                                             <!--refid="proto.path" />-->
+                                <!--&lt;!&ndash; https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.0.2/ 下载proto命令&ndash;&gt;-->
+                                <!--<exec executable="protoc3">-->
+                                    <!--<arg value="&#45;&#45;java_out=src/main/gen-java" />-->
+                                    <!--<arg value="-I${project.basedir}/src/main/proto" />-->
+                                    <!--<arg line="${proto.files}" />-->
+                                <!--</exec>-->
+                            <!--</tasks>-->
+                            <!--<sourceRoot>src/main/gen-java</sourceRoot>-->
+                        <!--</configuration>-->
+                        <!--<goals>-->
+                            <!--<goal>run</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <configuration>
@@ -289,7 +306,35 @@
                     </filesets>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <configuration>
+                    <!--          The version of protoc must match protobuf-java. If you don't depend on          protobuf-java directly, you will be transitively depending on the          protobuf-java version that grpc depends on.        -->
+                    <protocArtifact>com.google.protobuf:protoc:3.0.2:exe:${os.detected.classifier}</protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.0.1:exe:${os.detected.classifier}</pluginArtifact>
+                    <!--<protocExecutable>protoc3</protocExecutable>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.4.1.Final</version>
+            </extension>
+        </extensions>
 
     </build>
 </project>

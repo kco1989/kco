@@ -1,9 +1,17 @@
 syntax = "proto3";
-option java_package = "proto";
-option java_outer_classname = "Reg";
+package proto;
+//option java_package = "proto";
+option java_outer_classname = "PersonProto";
 
-message User {
-     string ipaddr = 1;
-//    optional string cookie = 2;
-//    optional int64 token = 3;
+message Person {
+     string name = 1;
+
+     string email = 2;
+     int32 id = 3;
+
+     oneof test_oneof{
+          string name1 =5;
+          int32 name2 = 6;
+     }
+     map<string, int32> project2 = 4;
 }

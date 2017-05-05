@@ -1,0 +1,7 @@
+syntax = "proto3";
+package proto;
+option java_outer_classname = "EncodingProto";
+
+message Test1 {
+    int32 a = 1;
+}
