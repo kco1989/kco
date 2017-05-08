@@ -13,7 +13,7 @@
 # 目录结构说明
 由于之前没有怎么整理项目,是的结构十分混乱,因此抽空把所用的项目给整理了一下
 
-- kco
+- kco  由于代码目录结构比较混乱,因此代码全部转移到[examples](https://github.com/kco1989/examples)下,该项目不在更新,想获取最新代码的同学们,请到上述地址下载更新
     - example               以下所有项目的代码都集合在这里
         - src/python        存放python的程序
         - src/main/java/com/kco
@@ -24,12 +24,12 @@
             - searchfile    用lucene实现文件索引的简单例子
             - secret        密码学
             - thread        多线程专题
-    - SimpleProgram         存放小程序 (不更新)
-    - php                   php自我测试程序(不更新)
-    - primaryKeyBuild       自定义主键生成策略(不更新)
-    - pythontest            python的测试程序(不更新)
-    - searchFile            用lucene实现文件索引的简单例子(不更新)
-    - threadTest            多线程专题(不更新)
+    - SimpleProgram         存放小程序 
+    - php                   php自我测试程序
+    - primaryKeyBuild       自定义主键生成策略
+    - pythontest            python的测试程序
+    - searchFile            用lucene实现文件索引的简单例子
+    - threadTest            多线程专题
 
 
 # 打赏
