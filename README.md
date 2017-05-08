@@ -5,8 +5,9 @@
 > - [segmentfaul博客](https://segmentfault.com/u/kco1989)
 > - [博客园](http://www.cnblogs.com/kco1989/)
 > - [开源中国](https://my.oschina.net/kco1989/blog)
->github: <https://github.com/kco1989/kco>
->代码已经全部托管[github](https://github.com/kco1989/kco)有需要的同学自行下载
+> - [github](https://github.com/kco1989/)
+>
+> 代码已经全部托管[github](https://github.com/kco1989/kco)有需要的同学自行下载
 
 
 # 目录结构说明
