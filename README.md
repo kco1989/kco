@@ -9,11 +9,13 @@
 >
 > 代码已经全部托管[github](https://github.com/kco1989/kco)有需要的同学自行下载
 
+# 重要声明
+<div style="color:red;">由于代码目录结构比较混乱,因此代码全部转移到[examples](https://github.com/kco1989/examples)下,该项目不在更新,想获取最新代码的同学们,请到上述地址下载更新</div>
 
 # 目录结构说明
 由于之前没有怎么整理项目,是的结构十分混乱,因此抽空把所用的项目给整理了一下
 
-- kco  由于代码目录结构比较混乱,因此代码全部转移到[examples](https://github.com/kco1989/examples)下,该项目不在更新,想获取最新代码的同学们,请到上述地址下载更新
+- kco  
     - example               以下所有项目的代码都集合在这里
         - src/python        存放python的程序
         - src/main/java/com/kco
