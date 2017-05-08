@@ -157,6 +157,7 @@ public void run() {
 这样也能保证售票正常,那在这里能不能把`synchronized (ticket){...}`改为`synchronized (random){...}`呢?不能,因为random不是同一个对象,即各个线程只对自己的门加锁,不能保证是对同一个门加锁.
 
 ---
-># 打赏
->如果觉得我的文章写的好的话,有钱就捧个钱场,没钱就给我点个赞
->![微信打赏2元](http://img.blog.csdn.net/20161028223820526)![支付宝打赏2元](http://img.blog.csdn.net/20161028223845557)
+# 打赏
+>如果觉得我的文章写的还过得去的话,有钱就捧个钱场,没钱给我捧个人场(帮我点赞或推荐一下)
+>![微信打赏](http://img.blog.csdn.net/20170508085654037?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnNoaV9rY28=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) 
+>![支付宝打赏](http://img.blog.csdn.net/20170508085710334?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnNoaV9rY28=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)

@@ -47,6 +47,7 @@ ok,这个类相对比较简单,我就不多讲了
 在正在项目中,一般如果需要使用定时任务,不会直接使用这个类的.有一个`quartz`已经把定时任务封装的很好了.它是通过`cron`表示时,可以指定某一个任务每天执行,或者每周三下午5点执行.更多的资料可以去查百度.或者等以后有机会我再整理一写常用jar用法系列文章.就这样了.
 
 ---
-#打赏
->如果觉得我的文章写的好的话,有钱就捧个钱场,没钱就给我点个赞
->![微信打赏2元](http://img.blog.csdn.net/20161028223820526)![支付宝打赏2元](http://img.blog.csdn.net/20161028223845557)
+# 打赏
+>如果觉得我的文章写的还过得去的话,有钱就捧个钱场,没钱给我捧个人场(帮我点赞或推荐一下)
+>![微信打赏](http://img.blog.csdn.net/20170508085654037?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnNoaV9rY28=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) 
+>![支付宝打赏](http://img.blog.csdn.net/20170508085710334?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnNoaV9rY28=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)

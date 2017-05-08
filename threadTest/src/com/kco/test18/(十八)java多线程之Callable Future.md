@@ -143,6 +143,7 @@ public class Demo4 {
 上一篇讲到了`ThreadPoolExecutor`,我们在执行任务的时候只使用了`execute`,这个是没有返回值的.而且如果任务抛出异常,则会直接在主线程打印出错误堆栈的.其实`ThreadPoolExecutor`还有另外一个提交任务的方法,就是`submit(Runnable task, T result)`和`submit(Callable<T> task)`,使用的就是我们这章节所讲的内容.大家可以自行写例子测试这两个方法.
 
 ---
-#打赏
->如果觉得我的文章写的好的话,有钱就捧个钱场,没钱就给我点个赞
->![微信打赏2元](http://img.blog.csdn.net/20161028223820526)![支付宝打赏2元](http://img.blog.csdn.net/20161028223845557)
+# 打赏
+>如果觉得我的文章写的还过得去的话,有钱就捧个钱场,没钱给我捧个人场(帮我点赞或推荐一下)
+>![微信打赏](http://img.blog.csdn.net/20170508085654037?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnNoaV9rY28=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) 
+>![支付宝打赏](http://img.blog.csdn.net/20170508085710334?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnNoaV9rY28=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
