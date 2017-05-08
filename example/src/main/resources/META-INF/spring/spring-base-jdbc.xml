@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.kco" />
+
+    <!-- 配置config的数据库 -->
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://99.12.140.117:5245/app111?useUnicode=yes&amp;characterEncoding=utf8&amp;allowMultiQueries=true"/>-->
+        <!--<property name="username" value="app111db"/>-->
+        <!--<property name="password" value="asdqwe123"/>-->
+        <!--<property name="minIdle" value="10"/>-->
+        <!--<property name="maxIdle" value="10"/>-->
+        <!--<property name="maxWaitMillis" value="5000"/>-->
+        <!--<property name="maxTotal" value="10"/>-->
+    <!--</bean>-->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql:///test?useUnicode=yes&amp;characterEncoding=utf8&amp;allowMultiQueries=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="051472988"/>
+        <property name="minIdle" value="10"/>
+        <property name="maxIdle" value="10"/>
+        <property name="maxWaitMillis" value="-1"/>
+        <property name="maxTotal" value="10"/>
+    </bean>
+    <!-- spring和MyBatis完美整合-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation"
+                  value="classpath:META-INF/mybatis/sql-map-config.xml" />
+        <property name="mapperLocations" value="classpath*:META-INF/mybatis/mapper/*Dao.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" id="mapperScannerConfigurer">
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+        <property name="basePackage" value="com.kco.dao"/>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*"  propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* *..*ServiceImpl*.*(..))"/>
+    </aop:config>
+</beans>
